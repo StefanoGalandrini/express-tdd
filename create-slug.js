@@ -7,7 +7,7 @@ function createSlug(title, posts)
 		throw new Error("Title is not present or is not a string");
 	}
 
-	if (!posts)
+	if (!Array.isArray(posts))
 	{
 		throw new Error("Posts array must be present");
 	}
