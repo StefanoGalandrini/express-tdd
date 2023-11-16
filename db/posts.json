@@ -1,10 +1,17 @@
 [
 	{
-		"titolo": "Viaggio nell'Infinito!",
-		"autore": "Dante Alighieri"
+		"titolo": "Viaggio nell'Infinito e oltre",
+		"autore": "Dante Alighieri",
+		"slug": "viaggio-nell'infinito-e-oltre"
 	},
 	{
-		"titolo": "Sogni di una Notte di Mezza Estate?",
-		"autore": "William Shakespeare"
+		"titolo": "Viaggio nell'Infinito e oltre",
+		"autore": "Dante Alighieri",
+		"slug": "viaggio-nell'infinito-e-oltre-1"
+	},
+	{
+		"titolo": "Sogni di una Notte di Mezza Estate",
+		"autore": "William Shakespeare",
+		"slug": "sogni-di-una-notte-di-mezza-estate"
 	}
 ]

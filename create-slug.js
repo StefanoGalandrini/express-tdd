@@ -2,19 +2,35 @@ const posts = require("./db/posts.json");
 
 function createSlug(title, posts)
 {
-	if (typeof title !== "string")
+	if (!title || typeof title !== "string")
 	{
-		throw new Error("Input must be a string");
+		throw new Error("Title is not present or is not a string");
+	}
+
+	if (!posts)
+	{
+		throw new Error("Posts array must be present");
 	}
 
 	// all characters to lowercase
-	title = title.toLowerCase();
+	let slug = title.toLowerCase();
 
 	// trim string and replace spaces with dashes
-	title = title.trim().replaceAll(" ", "-");
+	slug = slug.trim().replaceAll(" ", "-");
 
-	console.log(title);
-	return title;
-};
+	// check if slug already exists and add a number at the end
+	let counter = 1;
+	let originalSlug = slug;
+
+	while (posts.findIndex(post => post.slug === slug) !== -1)
+	{
+		slug = `${originalSlug}-${counter}`;
+		counter++;
+	}
+
+
+	console.log(slug);
+	return slug;
+}
 
 module.exports = createSlug;
