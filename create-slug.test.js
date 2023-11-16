@@ -2,6 +2,9 @@ const { test, expect } = require("@jest/globals");
 const createSlug = require("./create-slug");
 const posts = require("./db/posts.json");
 
+// import class Model
+const Model = require("./Model");
+
 // string to be tested
 const testString = posts[0].titolo;
 
@@ -56,3 +59,24 @@ test("dovrebbe lanciare un errore se manca l'array dei post", () =>
 });
 
 
+// tests for class Model
+describe('Model Class', () =>
+{
+	test("Model dovrebbe essere una classe", () =>
+	{
+		expect(typeof Model).toBe("function");
+		expect(Model.prototype.constructor).toBe(Model);
+	});
+
+	test("L'istanza di model dovrebbe avere il metodo read", () =>
+	{
+		const modelInstance = new Model('db/posts.json');
+		expect(typeof modelInstance.read).toBe('function');
+	});
+
+	test("L'istanza di model dovrebbe avere il metodo add", () =>
+	{
+		const modelInstance = new Model('db/posts.json');
+		expect(typeof modelInstance.add).toBe('function');
+	});
+});
