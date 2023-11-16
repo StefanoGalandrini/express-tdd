@@ -5,5 +5,8 @@ module.exports = function createSlug(str)
 		throw new TypeError('String required');
 	}
 
+	str = str.toLowerCase();
+
+	console.log(str);
 	return str;
 };
