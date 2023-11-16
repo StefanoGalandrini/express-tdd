@@ -1,12 +1,20 @@
-module.exports = function createSlug(str)
+const posts = require("./db/posts.json");
+
+function createSlug(title, posts)
 {
-	if (typeof str !== 'string')
+	if (typeof title !== "string")
 	{
-		throw new TypeError('String required');
+		throw new Error("Input must be a string");
 	}
 
-	str = str.toLowerCase();
+	// all characters to lowercase
+	title = title.toLowerCase();
 
-	console.log(str);
-	return str;
+	// trim string and replace spaces with dashes
+	title = title.trim().replaceAll(" ", "-");
+
+	console.log(title);
+	return title;
 };
+
+module.exports = createSlug;

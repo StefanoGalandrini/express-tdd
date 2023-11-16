@@ -1,26 +1,39 @@
 const { test, expect } = require("@jest/globals");
 const createSlug = require("./create-slug");
+const posts = require("./db/posts.json");
+
+// string to be tested
+const testString = "Quali test devo fare?...";
+
+
+// test("dovrebbe ritornare una stringa", () =>
+// {
+// 	const test = testString;
+// 	const result = () => createSlug(test);
+
+// 	expect(result).toThrowError("Input must be a string");
+// });
 
 test("dovrebbe ritornare una stringa", () =>
 {
-	const testString = "Quali test devo eseguire?...";
-	const result = createSlug(testString);
-	console.log(typeof testString);
+	const test = testString;
+	const result = createSlug(test, posts);
+
 	expect(typeof result).toBe("string");
 });
 
 test("dovrebbe ritornare una stringa in lowercase", () =>
 {
-	const testString = "Quali test devo eseguire?...";
-	const result = createSlug(testString);
+	const test = testString;
+	const result = createSlug(test, posts);
 
-	expect(result).toBe(testString.toLowerCase());
+	expect(result).toBe("quali-test-devo-fare?...");
 });
 
 test("dovrebbe sostituire gli spazi con i trattini", () =>
 {
-	const testString = "Quali test devo eseguire?...";
-	const result = createSlug(testString);
+	const test = testString;
+	const result = createSlug(test, posts);
 
-	expect(result).toBe("quali-test-devo-eseguire");
+	expect(result).toBe("quali-test-devo-fare?...");
 });
